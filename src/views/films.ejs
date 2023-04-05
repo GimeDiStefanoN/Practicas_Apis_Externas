@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/meta') %>
+</head>
+<body>
+    
+<header>
+  <%-include('./partials/header') %>
+</header>
+<main>
+    <h2 class="subtitle">
+        Catalogo de Peliculas
+    </h2>
+    <div>
+        <form class="buscador" class="d-flex" role="search">
+            <input class="form-control-lg" type="search" placeholder="Search" aria-label="Search">
+          </form>
+    </div>
+    <div class="contenido">
+    <% pelis.forEach(peli => { %>
+      <div class="card" style="width: 18rem;">
+      <% if (peli.imageUrl) { %>
+        <img src="<%= peli.imageUrl %>" class="card-img-top" alt="<%= peli.title %>">
+        <% } %>
+        <div class="card-body">
+          <h5 class="card-title"><%= peli.title %></h5>
+          <p class="card-text"><%= peli.year %></p>
+          <a href="#" class="btn btn-primary">Mas Info</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</main>
+<footer>
+  <%-include('./partials/footer') %>
+</footer>
+</body>
+</html>

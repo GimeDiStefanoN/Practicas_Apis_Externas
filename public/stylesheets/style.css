@@ -1,0 +1,69 @@
+body{
+    background-color: blanchedalmond;
+}
+header{
+    height: 15vh;
+}
+main{
+    height: 80vh;
+    overflow: auto;
+    padding-top: auto;
+}
+footer{
+    height: 5vh;
+    background-color: azure;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nav li a{
+    text-decoration: none;
+    color: black;
+}
+.nav li:hover{
+    background-color: rgb(245, 207, 214);
+}
+.container-fluid{
+    width: 50%;
+}
+.container-fluid span{
+    width: 100%;
+    text-align: center;
+}
+.saludo{
+    display: grid;
+    place-items: center;
+}
+.subtitle{
+    text-align: center;
+}
+.links{
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.card{
+    margin: 15px;
+}
+.buscador{
+    display: grid;
+    place-items: center;
+}
+.buscador input{
+    width: 80%;
+}
+.contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+footer p{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
