@@ -10,7 +10,6 @@ router.get("/", (req, res)=>{
 });
 
 router.get("/films", async (req, res)=>{
-
     //CODIGO QUE BRINDA RAPIDAPI
     const url = 'https://online-movie-database.p.rapidapi.com/auto-complete?q=SPIDERMAN';
     const options = {
@@ -57,12 +56,62 @@ router.get("/starWars", async(req, res)=>{
         return{
             name: personaje.name,
             date: personaje.birth_year,
-            gender: personaje.gender
-        }
+            gender: personaje.gender,
+            image: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg'
+        };
       })
-      return res.send(data)
+      return Promise.all(personajes);
+      //return res.send(data)
      //res.render("starWars");
-  });
+  })
+  .then(personajes => {
+    res.render('starWars.ejs', { personajes });
+  })
+});
+
+router.get("/clima", async (req, res)=>{
+    const city = 'Cordoba'
+    const apiKey = '27368f4b329a14749384df559dfc70b8'
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+        const datosTiempo ={
+            name: data.name,
+            temperatura: data.main.temp,
+            humedad: data.main.humidity,
+            coordLong: data.coord.lon,
+            coordLat: data.coord.lat,
+        }
+        console.log("🚀 ~ file: app.js:83 ~ router.get ~ datosTiempo:", datosTiempo)
+       
+        res.render("clima", {datosTiempo: datosTiempo});
+    })
+   
+});
+router.post("/clima", async (req, res)=>{
+    const city = req.body.cityName; //obtiene el valor del input
+    const apiKey = '27368f4b329a14749384df559dfc70b8'
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+        const datosTiempo ={
+            name: data.name,
+            temperatura: data.main.temp,
+            humedad: data.main.humidity,
+            coordLong: data.coord.lon,
+            coordLat: data.coord.lat,
+        }
+        console.log("🚀 ~ file: app.js:83 ~ router.get ~ datosTiempo:", datosTiempo)
+       
+        res.render("clima", {datosTiempo: datosTiempo});
+    })
+   
 });
 
 module.exports = router;
+
+
+//api tiempo
+// https://goweather.herokuapp.com/weather/${cidade}
+
+// https://api.openweathermap.org/data/2.5/weather?q=Rosario&appid=27368f4b329a14749384df559dfc70b8&units=metric

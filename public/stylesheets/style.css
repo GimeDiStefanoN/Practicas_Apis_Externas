@@ -53,14 +53,35 @@ footer{
     display: grid;
     place-items: center;
 }
-.buscador input{
-    width: 80%;
+.input-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.buscador div input{
+    width: 60%;
 }
 .contenido{
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+}
+.contenido-clima{
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+.column i{
+    width: 100%;
+    text-align: center;
+}
+.contenido-clima .columns{
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
 }
 footer p{
     width: 100%;

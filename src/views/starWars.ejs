@@ -18,18 +18,19 @@
           </form>
     </div>
     <div class="contenido">
-        <!-- <% pelis.forEach(peli => { %>
+        <% personajes.forEach(personaje => { %>
         <div class="card" style="width: 18rem;">
-        <% if (peli.imageUrl) { %>
-            <img src="<%= peli.imageUrl %>" class="card-img-top" alt="<%= peli.title %>">
+        <% if (personaje.image) { %>
+            <img src="<%= personaje.image %>" class="card-img-top" alt="<%= personaje.name %>">
             <% } %>
             <div class="card-body">
-            <h5 class="card-title"><%= peli.title %></h5>
-            <p class="card-text"><%= peli.year %></p>
+            <h5 class="card-title"><%= personaje.name %></h5>
+            <p class="card-text"><%= personaje.birth_year %></p>
+            <p class="card-text"><%= personaje.gender %></p>
             <a href="#" class="btn btn-primary">Mas Info</a>
             </div>
         </div>
-        <% }); %> -->
+        <% }); %>
     </div>
 </main>
 <footer>

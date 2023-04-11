@@ -27,5 +27,3 @@ app.listen(PORT, () => console.log(`Se esta escuchando en el puerto ${PORT}!`));
 
 
 
-//api
-//https://api.themoviedb.org/3/movie/550?api_key=15e437a6e0a7132a6481247878fcbcf3
